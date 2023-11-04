@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createTodo } from "../api/todos";
-import PostForm from "./TodoForm";
+import TodoForm from "./TodoForm";
 import { v4 as uuidv4 } from "uuid";
 
 const AddTodo = () => {
@@ -10,7 +10,6 @@ const AddTodo = () => {
     mutationFn: createTodo,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["todos"] });
-      console.log("success");
     },
   });
 
@@ -23,8 +22,7 @@ const AddTodo = () => {
 
   return (
     <div>
-      <h2>Todos</h2>
-      <PostForm onSubmit={handleAddTodo} initialValue={{}} />
+      <TodoForm onSubmit={handleAddTodo} initialValue={{}} />
     </div>
   );
 };

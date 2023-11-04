@@ -15,14 +15,21 @@ const Todos = () => {
     queryFn: () => fetchTodo(id),
   });
 
-  if (isLoading) return "loading...";
+  if (isLoading) return "Loading...";
   if (isError) return `Error: ${error.message}`;
 
   return (
-    <div>
-      <button onClick={() => navigate("/")}>back to lists</button>
-      <h1>{todo.title}</h1>
-      <p>{todo.body}</p>
+    <div className='pt-8'>
+      <button
+        onClick={() => navigate("/")}
+        className='bg-[#646cff] text-white py-2 px-4 rounded-3xl mb-4'
+      >
+        Back to Lists
+      </button>
+      <div className='p-4 bg-white rounded-lg shadow-md'>
+        <h1 className='text-2xl font-bold'>{todo.title}</h1>
+        <p className='text-gray-700 mt-2'>{todo.description}</p>
+      </div>
     </div>
   );
 };

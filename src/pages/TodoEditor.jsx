@@ -16,6 +16,7 @@ const TodoEditor = () => {
     queryKey: ["todos", id],
     queryFn: () => fetchTodo(id),
   });
+
   const updateTodoMutation = useMutation({
     mutationFn: updateTodo,
     onSuccess: () => {

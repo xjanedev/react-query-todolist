@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const TodoForm = ({ onSubmit, initialValue }) => {
+  const navigate = useNavigate();
+
   const [todo, setTodo] = useState({
     title: initialValue.title || "",
-    body: initialValue.body || "",
+    description: initialValue.description || "",
   });
 
   const handleChangeInput = e => {
@@ -13,33 +16,57 @@ const TodoForm = ({ onSubmit, initialValue }) => {
     });
   };
 
-  const renderField = label => (
-    <div>
-      <label>{label}</label>
-      <input
-        onChange={handleChangeInput}
-        type='text'
-        name={label.toLowerCase()}
-        value={todo[label.toLowerCase()]}
-      />
-    </div>
-  );
-
-  const handleSubmit = e => {
-    e.preventDefault();
+  const handleButtonClick = () => {
     onSubmit(todo);
     setTodo({
       title: "",
-      body: "",
+      description: "",
+      isDone: false,
     });
+    navigate("/");
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      {renderField("Title")}
-      {renderField("Body")}
-      <button type='submit'>Submit</button>
-    </form>
+    <div className=' bg-purple-100 p-4 rounded-md'>
+      <form className='gap-10'>
+        <div className='mb-4'>
+          <label htmlFor='title' className='text-md'>
+            Title
+          </label>
+          <input
+            type='text'
+            id='title'
+            name='title'
+            value={todo.title}
+            onChange={handleChangeInput}
+            className='w-full p-2 border border-gray-300 rounded'
+          />
+        </div>
+        <div className='mb-4'>
+          <label htmlFor='description' className='text-md'>
+            Description
+          </label>
+          <textarea
+            id='description'
+            name='description'
+            value={todo.description}
+            onChange={handleChangeInput}
+            rows='4'
+            style={{ resize: "none" }}
+            className='w-full p-2 border border-gray-300 rounded'
+          />
+        </div>
+      </form>
+      <div className='py-2'>
+        <button
+          type='button'
+          onClick={handleButtonClick}
+          className='bg-purple-600 text-white w-auto px-4 py-2 rounded-full flex ml-auto'
+        >
+          Submit
+        </button>
+      </div>
+    </div>
   );
 };
 
