@@ -1,9 +1,22 @@
 {
   "todos": [
     {
-      "id": "cb4b0c2c-6d4e-4bb6-bd4f-77e020726def",
-      "title": "프론트엔드 면접 준비",
-      "description": "자바스크립트 공부하기!!"
+      "id": "2d815157-7823-4246-9325-673ed92bdd82",
+      "title": "React 공부하기",
+      "description": "- useMemo, useCallback 최적화 공부",
+      "isDone": true
+    },
+    {
+      "id": "813f067b-306d-4c29-9d0b-3fa5115a73b0",
+      "title": "빨래 하기",
+      "description": "내일까지!!\n",
+      "isDone": true
+    },
+    {
+      "id": "fa6eee5a-2975-4103-9a70-ce4c9d91f46f",
+      "title": "산책 하기",
+      "description": "아침 산책하기",
+      "isDone": true
     }
   ]
 }

@@ -2,6 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createTodo } from "../api/todos";
 import TodoForm from "./TodoForm";
 import { v4 as uuidv4 } from "uuid";
+import Button from "./Button";
 
 const AddTodo = () => {
   const queryClient = useQueryClient();
@@ -22,6 +23,7 @@ const AddTodo = () => {
 
   return (
     <div>
+      <Button />
       <TodoForm onSubmit={handleAddTodo} initialValue={{}} />
     </div>
   );

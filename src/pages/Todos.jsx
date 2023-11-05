@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate, useParams } from "react-router-dom";
 import { fetchTodo } from "../api/todos";
+import Button from "../components/Button";
 
 const Todos = () => {
   const navigate = useNavigate();
@@ -19,16 +20,14 @@ const Todos = () => {
   if (isError) return `Error: ${error.message}`;
 
   return (
-    <div className='pt-8'>
-      <button
-        onClick={() => navigate("/")}
-        className='bg-[#646cff] text-white py-2 px-4 rounded-3xl mb-4'
+    <div className='gap-8'>
+      <Button />
+      <div
+        key={todo.id}
+        className='w-full h-[480px] p-4 mb-4 bg-purple-100 rounded-lg'
       >
-        Back to Lists
-      </button>
-      <div className='p-4 bg-white rounded-lg shadow-md'>
-        <h1 className='text-2xl font-bold'>{todo.title}</h1>
-        <p className='text-gray-700 mt-2'>{todo.description}</p>
+        <h3 className='text-xl text-gray-900'>{todo.title}</h3>
+        <p className='text-gray-600 mt-4'>{todo.description}</p>
       </div>
     </div>
   );

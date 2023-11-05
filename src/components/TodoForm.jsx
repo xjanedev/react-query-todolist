@@ -7,6 +7,7 @@ const TodoForm = ({ onSubmit, initialValue }) => {
   const [todo, setTodo] = useState({
     title: initialValue.title || "",
     description: initialValue.description || "",
+    isDone: initialValue.isDone || false,
   });
 
   const handleChangeInput = e => {
