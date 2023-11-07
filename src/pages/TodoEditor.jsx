@@ -2,6 +2,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useNavigate, useParams } from "react-router-dom";
 import { fetchTodo, updateTodo } from "../api/todos";
 import TodoForm from "../components/TodoForm";
+import Button from "../components/Button";
 
 const TodoEditor = () => {
   const queryClient = useQueryClient();
@@ -34,6 +35,7 @@ const TodoEditor = () => {
 
   return (
     <div>
+      <Button />
       <TodoForm onSubmit={handleSubmit} initialValue={todo} />
     </div>
   );

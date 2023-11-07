@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { updateTodo, deleteTodo } from "../api/todos";
@@ -27,19 +28,45 @@ const TodoItem = ({ todo }) => {
 
   return (
     <div key={todo.id} className='p-4 mb-4 bg-purple-100 rounded-lg'>
-      <input
-        type='checkbox'
-        onChange={onChangeCheckbox}
-        checked={todo.isDone || false}
-      />
-      <h4
-        className='text-gray-900 text-md cursor-pointer'
-        onClick={() => navigate(`/todo/${todo.id}`)}
-      >
-        {todo.title}
-      </h4>
-      <div className='pt-2 text-gray-500 text-sm'>{todo.description}</div>
-      <div className='flex justify-end gap-2'>
+      <div className='flex items-center mb-2'>
+        <input
+          type='checkbox'
+          onChange={onChangeCheckbox}
+          checked={todo.isDone || false}
+          className='hidden'
+        />
+        <label
+          className='inline-flex items-center justify-center h-5 w-5 mr-2 border-2 border-purple-500 rounded-md bg-purple-200 cursor-pointer'
+          onClick={onChangeCheckbox}
+        >
+          {todo.isDone && (
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
+              className='h-3 w-3'
+            >
+              <path
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth='3'
+                d='M5 13l4 4L19 7'
+              />
+            </svg>
+          )}
+        </label>
+        <h4
+          className='text-gray-900 text-md cursor-pointer'
+          onClick={() => navigate(`/todo/${todo.id}`)}
+        >
+          {todo.title}
+        </h4>
+      </div>
+      <div className='text-gray-500 text-sm line-clamp-1'>
+        {todo.description}
+      </div>
+      <div className='flex justify-end pt-4 gap-2'>
         <button
           className='bg-purple-500 text-white w-auto px-4 py-2 rounded-full'
           onClick={() => navigate(`/todo/${todo.id}/edit`)}
@@ -57,4 +84,4 @@ const TodoItem = ({ todo }) => {
   );
 };
 
-export default TodoItem;
+export default memo(TodoItem);

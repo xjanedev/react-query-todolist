@@ -29,7 +29,7 @@ const TodoForm = ({ onSubmit, initialValue }) => {
 
   return (
     <div className=' bg-purple-100 p-4 rounded-md'>
-      <form className='gap-10'>
+      <form>
         <div className='mb-4'>
           <label htmlFor='title' className='text-md'>
             Title
