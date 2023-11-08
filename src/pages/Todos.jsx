@@ -19,7 +19,7 @@ const Todos = () => {
   if (isError) return `Error: ${error.message}`;
 
   return (
-    <div className='gap-8'>
+    <div className='gap-8 text-sm'>
       <Button />
       <div
         key={todo.id}

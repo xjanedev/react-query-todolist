@@ -1,15 +1,9 @@
 {
   "todos": [
     {
-      "id": "2d815157-7823-4246-9325-673ed92bdd82",
-      "title": "React 공부하기",
-      "description": "- useMemo, useCallback 최적화 공부",
-      "isDone": false
-    },
-    {
-      "id": "813f067b-306d-4c29-9d0b-3fa5115a73b0",
+      "id": "220f1933-21c4-4879-a09c-339b0c33b207",
       "title": "빨래 하기",
-      "description": "내일까지!!\n",
+      "description": "내일까지!!",
       "isDone": false
     }
   ]

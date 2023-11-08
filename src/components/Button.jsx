@@ -5,7 +5,7 @@ export default function Button() {
   return (
     <button
       onClick={() => navigate("/")}
-      className='bg-purple-600 text-white py-2 px-4 rounded-3xl mb-8'
+      className='bg-purple-600 text-white text-sm py-2 px-4 rounded-3xl mb-8'
     >
       Back to Lists
     </button>

@@ -1,15 +1,17 @@
 export async function fetchTodos() {
-  const response = await fetch("http://localhost:3000/todos");
+  const response = await fetch("https://rose-radical-address.glitch.me/todos");
   return response.json();
 }
 
 export async function fetchTodo(id) {
-  const response = await fetch(`http://localhost:3000/todos/${id}`);
+  const response = await fetch(
+    `https://rose-radical-address.glitch.me/todos/${id}`
+  );
   return response.json();
 }
 
 export async function createTodo(newTodo) {
-  const response = await fetch(`http://localhost:3000/todos`, {
+  const response = await fetch(`https://rose-radical-address.glitch.me/todos`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -21,7 +23,7 @@ export async function createTodo(newTodo) {
 
 export async function updateTodo(updatedTodo) {
   const response = await fetch(
-    `http://localhost:3000/todos/${updatedTodo.id}`,
+    `https://rose-radical-address.glitch.me/todos/${updatedTodo.id}`,
     {
       method: "PUT",
       headers: {
@@ -34,8 +36,11 @@ export async function updateTodo(updatedTodo) {
 }
 
 export async function deleteTodo(id) {
-  const response = await fetch(`http://localhost:3000/todos/${id}`, {
-    method: "DELETE",
-  });
+  const response = await fetch(
+    `https://rose-radical-address.glitch.me/todos/${id}`,
+    {
+      method: "DELETE",
+    }
+  );
   return response.json();
 }

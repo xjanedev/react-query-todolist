@@ -14,7 +14,7 @@ function CheckList({ todos }) {
   }, [todos]);
 
   return (
-    <div className='pt-14'>
+    <div className='pt-14 text-sm'>
       <h4 className='pb-4'>Notes</h4>
       <div className='border-b border-gray-300 pb-2 flex items-center'>
         <svg

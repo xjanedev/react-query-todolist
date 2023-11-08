@@ -28,7 +28,7 @@ const TodoForm = ({ onSubmit, initialValue }) => {
   };
 
   return (
-    <div className=' bg-purple-100 p-4 rounded-md'>
+    <div className=' bg-purple-100 p-4 rounded-md text-sm'>
       <form>
         <div className='mb-4'>
           <label htmlFor='title' className='text-md'>
@@ -62,7 +62,7 @@ const TodoForm = ({ onSubmit, initialValue }) => {
         <button
           type='button'
           onClick={handleButtonClick}
-          className='bg-purple-600 text-white w-auto px-4 py-2 rounded-full flex ml-auto'
+          className='bg-purple-600 text-white text-sm w-auto px-4 py-2 rounded-full flex ml-auto'
         >
           Submit
         </button>

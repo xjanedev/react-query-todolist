@@ -27,7 +27,7 @@ const TodoItem = ({ todo }) => {
   };
 
   return (
-    <div key={todo.id} className='p-4 mb-4 bg-purple-100 rounded-lg'>
+    <div key={todo.id} className='p-4 mb-4 bg-purple-100 rounded-lg text-sm'>
       <div className='flex items-center mb-2'>
         <input
           type='checkbox'
@@ -57,15 +57,13 @@ const TodoItem = ({ todo }) => {
           )}
         </label>
         <h4
-          className='text-gray-900 text-md cursor-pointer'
+          className='text-gray-900 cursor-pointer'
           onClick={() => navigate(`/todo/${todo.id}`)}
         >
           {todo.title}
         </h4>
       </div>
-      <div className='text-gray-500 text-sm line-clamp-1'>
-        {todo.description}
-      </div>
+      <div className='text-gray-500 line-clamp-1'>{todo.description}</div>
       <div className='flex justify-end pt-4 gap-2'>
         <button
           className='bg-purple-500 text-white w-auto px-4 py-2 rounded-full'
