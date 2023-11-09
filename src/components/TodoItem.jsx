@@ -20,10 +20,20 @@ const TodoItem = ({ todo }) => {
 
   const onChangeCheckbox = () => {
     const updatedTodo = { ...todo, isDone: !todo.isDone };
+    const optimisticUpdate = oldData => {
+      const updatedData = oldData.map(item => {
+        if (item.id === updatedTodo.id) {
+          return updatedTodo;
+        }
+        return item;
+      });
+      return updatedData;
+    };
 
-    updateTodo(updatedTodo).then(() => {
-      queryClient.invalidateQueries({ queryKey: ["todos"] });
-    });
+    updateTodo(updatedTodo)
+      .then(response => {})
+      .catch(error => {});
+    queryClient.setQueryData(["todos"], optimisticUpdate);
   };
 
   return (
@@ -63,7 +73,9 @@ const TodoItem = ({ todo }) => {
           {todo.title}
         </h4>
       </div>
-      <div className='text-gray-500 line-clamp-1'>{todo.description}</div>
+      <div className='text-gray-500 text-sm line-clamp-1'>
+        {todo.description}
+      </div>
       <div className='flex justify-end pt-4 gap-2'>
         <button
           className='bg-purple-500 text-white w-auto px-4 py-2 rounded-full'

@@ -40,7 +40,7 @@ const TodoForm = ({ onSubmit, initialValue }) => {
             name='title'
             value={todo.title}
             onChange={handleChangeInput}
-            className='w-full p-2 border border-gray-300 rounded'
+            className='w-full p-2 border border-gray-300 focus: outline-none rounded'
           />
         </div>
         <div className='mb-4'>
@@ -54,7 +54,7 @@ const TodoForm = ({ onSubmit, initialValue }) => {
             onChange={handleChangeInput}
             rows='4'
             style={{ resize: "none" }}
-            className='w-full p-2 border border-gray-300 rounded'
+            className='w-full p-2 border border-gray-300 focus: outline-none rounded'
           />
         </div>
       </form>
